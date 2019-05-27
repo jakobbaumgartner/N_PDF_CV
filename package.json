@@ -1,0 +1,22 @@
+{
+  "name": "n_pdf_cv",
+  "version": "1.0.0",
+  "description": "Simple pdf application. Made using pdfkit.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakobbaumgartner/N_PDF_CV.git"
+  },
+  "author": "Jakob Baumgartner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakobbaumgartner/N_PDF_CV/issues"
+  },
+  "homepage": "https://github.com/jakobbaumgartner/N_PDF_CV#readme",
+  "dependencies": {
+    "pdfkit": "^0.9.1"
+  }
+}
