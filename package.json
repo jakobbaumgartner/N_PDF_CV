@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jakobbaumgartner/N_PDF_CV#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
     "pdfkit": "^0.9.1"
   }
 }

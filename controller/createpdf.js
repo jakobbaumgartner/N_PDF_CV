@@ -1,7 +1,7 @@
 const PDFDocument = require('pdfkit')
 const fs = require('fs')
 
-module.exports = (naslov, iskanazaposlitev, izobrazba1, izobrazba2, kompetence1, kompetence2, drugo, omeni, interes1, interes2, interes3, interes4, interes5) => {
+module.exports = (filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', izobrazba2='/', kompetence1='/', kompetence2='/', drugo='/', omeni='/', interes1='/', interes2='/', interes3='/', interes4='/', interes5='/') => {
 
 	const doc = new PDFDocument
 	doc.pipe(fs.createWriteStream('testpdf.pdf'))
@@ -43,7 +43,7 @@ module.exports = (naslov, iskanazaposlitev, izobrazba1, izobrazba2, kompetence1,
 	
 	//Sedaj sestavimo desni stolpec
 	
-	doc.image('./photo.jpg', x_column2, y_line1, {width: width_column2})
+	doc.image(filename, x_column2, y_line1, {width: width_column2})
 	doc.fontSize(12).text(omeni, x_column2, 270, {width: width_column2})
 	doc.fontSize(18).text('Interesi', x_column2, 525, {width: width_column2})
 	doc.moveTo(x_column2, 545).lineTo(x_column2+width_column2, 545).stroke()
