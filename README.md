@@ -1,13 +1,19 @@
 # N_PDF_CV (V IZDELAVI)
 
-Program nam na podlagi vnešenih podatkov izdela PDF dokument, z uporabo v naprej pripravljene sheme. Uporabljen je pdfkit modul. Podatki bodo poslani preko restful api in uporabljen bo modul express-formidable za prevzem fotografije.
+Program nam na podlagi prejetih podatkov preko http-ja izdela PDF dokument, z uporabo v naprej pripravljene sheme. Uporabljen je pdfkit modul. Podatki bodo poslani preko restful api in uporabljen bo modul express-formidable za prevzem fotografije. Ko je dokument izdelan bo poslan uporabniku nazaj.
 
-https://nodejs.org/en/knowledge/HTTP/servers/how-to-handle-multipart-form-data/
+Cilj projekta ni narediti production - ready aplikacije, varnost torej ni na prvem mestu, isto ne efekivnost shranjevanja podatkov.
+
+## Status projekta:
+
+Projekt je skoraj zaključen, manjka samo še vračanje datoteke uporabniku. 
+
+
 
 ## Uporabljeno
 
-Program uporablja sintakso Async-Await. Za funkcijo, ki uporablja callback() sem uporabil util.promisify za prireditev na pravo sintakso.
-
+* nodejs
+* express
 * nodejs tehnologija
 * pdfkit
-* https://www.npmjs.com/package/express-formidable
+* express-formidable
