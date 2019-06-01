@@ -8,6 +8,8 @@ Cilj projekta ni narediti production - ready aplikacije, varnost torej ni na prv
 
 Projekt je skoraj zaključen, manjka samo še vračanje datoteke uporabniku. 
 
+pdfkit nima callback funkcije, lahko pa gledam kdaj se konča datastream: https://github.com/foliojs/pdfkit/issues/265
+
 
 
 ## Uporabljeno

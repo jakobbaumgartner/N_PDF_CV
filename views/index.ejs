@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+ <div  id="upper" class="container" >
+	 <div class="row">
+		 <h1>CV PDF Generator</h1>
+		
+	 </div>
+	 <div class="row">
+			<div class="col-sm-8">
+				<form action="/new" method="POST">
+					<p>Vnesite vaše ime in priimek:</p>
+					<input type="text" name="naslov" id="naslov"><br>
+					<p>Vnesite vašo iskano zaposlitev:</p>
+					<input type="text" name="iskanazaposlitev" id="iskanazaposlitev"><br>
+					<p>Vnesite prvo opravljeno šolo.</p>
+					<input type="text" name="izobrazba1" id="izobrazba1"><br>
+					<p>Vnesite drugo opravljeno šolo.</p>
+					<input type="text" name="izobrazba2" id="izobrazba2"><br>
+					<p>Vnesite pomembne kompetence:</p>
+					<input type="text" name="kompetence1" id="kompetence1"><br>
+					<p>Če jih je več:</p>
+					<input type="text" name="kompetence2" id="kompetence2"><br>
+					<p>Drugo:</p>
+					<input type="text" name="drugo" id="omeni"><br>
+					<p>Interes 1:</p>
+					<input type="text" name="interes1" id="interes1"><br>
+					<p>Interes 2:</p>
+					<input type="text" name="interes2" id="interes2"><br>
+					<p>Interes 3:</p>
+					<input type="text" name="interes3" id="interes3"><br>
+					<p>Interes 4:</p>
+					<input type="text" name="interes4" id="interes4"><br>
+					<p>Interes 5:</p>
+					<input type="text" name="interes5" id="interes5"><br>
+					<p>Vaša slika:</p>
+					<input type="file" name="photo0" id="photo0">
+				</form>
+
+			</div>
+			<div class="col-sm-4">
+				<h3>Skica:</h3>
+				<img src="/images/skica1.png" id="skica" alt="Skica dizajna.">
+			</div>
+	 </div>
+		
+ </div>
+
+	
+</body>
+</html>

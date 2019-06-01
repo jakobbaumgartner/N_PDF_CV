@@ -1,11 +1,31 @@
 const express = require('express');
-const PDFDocument = require('pdfkit')
 const fs = require('fs')
+const path = require('path')
+const PDFDocument = require('pdfkit')
+const doc = new PDFDocument
+var bodyParser = require('body-parser')
 const formidableMiddleware = require('express-formidable');
-const createpdf = require('./controller/createpdf')
+
+
+//const createpdf = require('./controller/createpdf')
  
 var app = express();
- var filename;
+
+var filename;
+
+
+
+
+// css and js static folders
+app.use(express.static(path.join(__dirname, 'public')))
+ 
+// views engine settings
+let ejs = require('ejs')
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+
+
 
 app.use(formidableMiddleware({
 	encoding: 'utf-8',
@@ -17,22 +37,32 @@ app.use(formidableMiddleware({
 		  event: 'file',
 		  action: function (req, res, next, name, file) {
 			filename = './photos/' + file.name
-			fs.rename(file.path, filename, (err) =>{console.log("nekaj")}); }
+			fs.rename(file.path, filename, (err) =>{console.log("nekaj" + filename)}); }
 		}
 	]
   ))
-  var response;
-  app.use('/', (req, res)=> {
-	  response = res
-	  console.log(filename)
-	  res.status(200);
-	  createpdf(filename, req.fields.naslov, req.fields.iskanazaposlitev, req.fields.izobrazba1, req.fields.izobrazba2, req.fields.kompetence1, req.fields.kompetence2, req.fields.drugo, req.fields.omeni, req.fields.interes1, req.fields.interes2, req.fields.interes3, req.fields.interes4, req.fields.interes5 )
-  })
- 
 
-  app.post('/', (req, res) => {
-	  console.log("Post seen.")
-  });
+
+
+
+  
+  //var response;
+  
+
+ app.post('/test', (req, res) => {console.log("something seenpost")
+ 									res.send('File gotten.');});
+
+ app.use('/', (req, res) => {
+
+	res.render('index.ejs');
+	console.log("page rendered")
+	 
+ });
+
+
+//   app.post('/', (req, res) => {
+// 	  console.log("Post seen.")
+//   });
 
 
 

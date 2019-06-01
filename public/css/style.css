@@ -1,0 +1,26 @@
+body {
+	background-color: #d4e157;
+}
+
+#upper {
+	margin-top: 10vh;
+
+}
+
+#upper p {
+	display: inline;
+}
+
+.container {
+	background-color: #d4e157;
+}
+
+#skica {
+	width: 100%;
+}
+
+
+
+p {
+	line-height: 6vh;
+}

@@ -4,7 +4,8 @@
   "description": "Simple pdf application. Made using pdfkit.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,8 @@
   },
   "homepage": "https://github.com/jakobbaumgartner/N_PDF_CV#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",
     "pdfkit": "^0.9.1"

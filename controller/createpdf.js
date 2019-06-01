@@ -61,3 +61,33 @@ module.exports = (filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', iz
 
 }
 
+function savetopdf (pdfkitdocument, filename) {
+
+
+
+	return new Promise ((resolve, reject) => {
+
+        // To determine when the PDF has finished being written successfully 
+        // we need to confirm the following 2 conditions:
+        //
+        //   1. The write stream has been closed
+        //   2. PDFDocument.end() was called syncronously without an error being thrown
+
+        let pendingStepCount = 2;
+
+        function stepFinished () {
+			pendingStepCount--
+            if (pendingStepCount == 0) {
+                resolve();
+            }
+        };
+
+        const writeStream = fs.createWriteStream(fileName);
+        writeStream.on('close', stepFinished);
+        pdf.pipe(writeStream);
+
+        pdf.end();
+
+        stepFinished();
+}
+}
