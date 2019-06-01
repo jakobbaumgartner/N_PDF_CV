@@ -1,10 +1,10 @@
 const PDFDocument = require('pdfkit')
 const fs = require('fs')
 
-module.exports = (filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', izobrazba2='/', kompetence1='/', kompetence2='/', drugo='/', omeni='/', interes1='/', interes2='/', interes3='/', interes4='/', interes5='/') => {
+module.exports = (doc, filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', izobrazba2='/', kompetence1='/', kompetence2='/', drugo='/', omeni='/', interes1='/', interes2='/', interes3='/', interes4='/', interes5='/') => {
 
-	const doc = new PDFDocument
-	doc.pipe(fs.createWriteStream('testpdf.pdf'))
+	
+	//doc.pipe(fs.createWriteStream('testpdf.pdf'))
 
 
 	const y_line1 = 60
@@ -56,12 +56,14 @@ module.exports = (filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', iz
 	
 	
 	//in pa pokličemo izvedbo dokumenta
-	doc.end()
+	//doc.end()
+
+	savetopdf(doc, "pdfCV")
 
 
 }
 
-function savetopdf (pdfkitdocument, filename) {
+function savetopdf (pdf, fileName) {
 
 
 
@@ -89,5 +91,4 @@ function savetopdf (pdfkitdocument, filename) {
         pdf.end();
 
         stepFinished();
-}
-}
+})}

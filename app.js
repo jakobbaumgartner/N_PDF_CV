@@ -3,11 +3,11 @@ const fs = require('fs')
 const path = require('path')
 const PDFDocument = require('pdfkit')
 const doc = new PDFDocument
-var bodyParser = require('body-parser')
+//var bodyParser = require('body-parser')
 const formidableMiddleware = require('express-formidable');
 
 
-//const createpdf = require('./controller/createpdf')
+const createpdf = require('./controller/createpdf')
  
 var app = express();
 
@@ -37,7 +37,10 @@ app.use(formidableMiddleware({
 		  event: 'file',
 		  action: function (req, res, next, name, file) {
 			filename = './photos/' + file.name
-			fs.rename(file.path, filename, (err) =>{console.log("nekaj" + filename)}); }
+			fs.rename(file.path, filename, (err) =>{
+
+				console.log("nekaj" + filename)});
+			}
 		}
 	]
   ))
@@ -45,12 +48,11 @@ app.use(formidableMiddleware({
 
 
 
-  
-  //var response;
+app.post('/newpdf', (req, res) => {
+	console.log("newpdf")
+});
   
 
- app.post('/test', (req, res) => {console.log("something seenpost")
- 									res.send('File gotten.');});
 
  app.use('/', (req, res) => {
 
