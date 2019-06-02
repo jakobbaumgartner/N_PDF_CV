@@ -57,7 +57,6 @@ module.exports = (req, res, doc, filename, naslov='/', iskanazaposlitev='/', izo
 	
 	
 	//in pa pokličemo izvedbo dokumenta
-	//doc.end()
 
 	savetopdf(doc, "pdfCV.pdf").then(() => {
 		res.sendFile(path.join(__dirname,'..', 'testpdf.pdf'))
@@ -68,7 +67,8 @@ module.exports = (req, res, doc, filename, naslov='/', iskanazaposlitev='/', izo
 
 function savetopdf (pdf, fileName) {
 
-
+	//ker pdfkit sam po sebi ne sporoči ali je bil dokument že generiran moramo pogledati
+	//kdaj se konča stream podatkov, to naredi ta funkcija
 
 	return new Promise ((resolve, reject) => {
 
