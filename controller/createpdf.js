@@ -1,10 +1,11 @@
 const PDFDocument = require('pdfkit')
+const path = require('path')
 const fs = require('fs')
 
-module.exports = (doc, filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', izobrazba2='/', kompetence1='/', kompetence2='/', drugo='/', omeni='/', interes1='/', interes2='/', interes3='/', interes4='/', interes5='/') => {
+module.exports = (req, res, doc, filename, naslov='/', iskanazaposlitev='/', izobrazba1='/', izobrazba2='/', kompetence1='/', kompetence2='/', drugo='/', omeni='/', interes1='/', interes2='/', interes3='/', interes4='/', interes5='/') => {
 
 	
-	//doc.pipe(fs.createWriteStream('testpdf.pdf'))
+	doc.pipe(fs.createWriteStream('testpdf.pdf'))
 
 
 	const y_line1 = 60
@@ -58,7 +59,9 @@ module.exports = (doc, filename, naslov='/', iskanazaposlitev='/', izobrazba1='/
 	//in pa pokličemo izvedbo dokumenta
 	//doc.end()
 
-	savetopdf(doc, "pdfCV")
+	savetopdf(doc, "pdfCV.pdf").then(() => {
+		res.sendFile(path.join(__dirname,'..', 'testpdf.pdf'))
+	})
 
 
 }
@@ -77,15 +80,17 @@ function savetopdf (pdf, fileName) {
 
         let pendingStepCount = 2;
 
-        function stepFinished () {
+        var stepFinished = ()=> {
+			console.log("Stepfinsihed ran")
 			pendingStepCount--
             if (pendingStepCount == 0) {
-                resolve();
+				resolve();
+				console.log("solved")
             }
         };
 
         const writeStream = fs.createWriteStream(fileName);
-        writeStream.on('close', stepFinished);
+        writeStream.on('close', stepFinished)
         pdf.pipe(writeStream);
 
         pdf.end();
